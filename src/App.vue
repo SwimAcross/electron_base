@@ -1,10 +1,24 @@
 <template>
-  <el-button type="primary" @click="runNodeHandle">执行</el-button>
+  <template v-for="item in result">
+    <el-button @click="selectHeroHandle(item)" class="btn">{{
+      item.key
+    }}</el-button>
+  </template>
 </template>
 <script lang="ts" setup>
-const runNodeHandle = () => {
-  console.log(123);
+import { onMounted, ref } from 'vue';
+import { readFileHandle, simulatedClick } from './utils/index';
+const result = ref();
+
+const selectHeroHandle = (item: any) => {
+  simulatedClick(item.value);
 };
-// 监听键盘回车事件
+onMounted(async () => {
+  result.value = await readFileHandle();
+});
 </script>
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+.btn {
+  margin: 10px;
+}
+</style>
