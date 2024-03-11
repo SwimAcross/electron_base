@@ -7,7 +7,13 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    ClickBottom: typeof import('./src/components/clickBottom.vue')['default']
+    ControlPanel: typeof import('./src/components/ControlPanel.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
+    ElectronPenetrate: typeof import('./src/components/electronPenetrate.vue')['default']
+    ElRadio: typeof import('element-plus/es')['ElRadio']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    MouthThrough: typeof import('./src/components/MouthThrough.vue')['default']
+    SpecialButtons: typeof import('./src/components/SpecialButtons.vue')['default']
   }
 }

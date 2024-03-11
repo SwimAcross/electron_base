@@ -12,7 +12,8 @@
     "electron:build": "vite build && electron-builder"
   },
   "dependencies": {
-    "element-plus": "^2.6.0",
+    "animate.css": "^4.1.1",
+    "element-plus": "^2.6.1",
     "eslint-define-config": "^2.0.0",
     "less": "^4.2.0",
     "less-loader": "4.0.0",

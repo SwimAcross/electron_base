@@ -2,7 +2,7 @@
 
 const { contextBridge, ipcRenderer } = require('electron');
 
-// Expose ipcRenderer to the renderer process
-contextBridge.exposeInMainWorld('electron', {
-  ipcRenderer: ipcRenderer,
+contextBridge.exposeInMainWorld('electronAPI', {
+  ipcRenderer,
+  MouthThrough: (args) => ipcRenderer.send('set-ignore-mouse-events', args)
 });
