@@ -1,5 +1,5 @@
 <template>
-  <div class="control_panel animate__animated animate__fadeOutLeft">
+  <div class="control_panel animate__animated animate__fadeInLeft">
     <div class="control_panel-header"></div>
     <div class="control_panel-content">
       <slot name="content"></slot>
