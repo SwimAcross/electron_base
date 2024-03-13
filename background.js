@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain, screen } = require('electron');
+const { app, BrowserWindow, ipcMain, screen, globalShortcut  } = require('electron');
 
 const path = require('path');
 
@@ -58,11 +58,27 @@ const createWindow = () => {
     app.exit();
   });
 };
+
 app.whenReady().then(() => {
   createWindow();
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
   });
+  // 注册一个'F2' 快捷键监听器
+  const ret = globalShortcut.register('F2', () => {
+    console.log('F2 is pressed');
+  });
+  if (!ret) {
+    console.log('registration failed');
+  };
+   // 检查快捷键是否注册成功
+   console.log(globalShortcut.isRegistered('F2'));
+});
+
+
+app.on('will-quit', () => {
+  globalShortcut.unregister('F2');
+  globalShortcut.unregisterAll();
 });
 
 app.on('window-all-closed', () => {

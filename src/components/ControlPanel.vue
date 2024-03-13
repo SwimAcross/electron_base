@@ -1,6 +1,10 @@
 <template>
-  <div class="control_panel animate__animated animate__fadeInLeft">
-    <div class="control_panel-header"></div>
+  <!--  -->
+  <button @click="isopen = !isopen">收回面板</button>
+  <div :class="['control_panel', 'animate__animated', isopen?'animate__fadeInLeft': 'animate__fadeOutLeft']">
+    <div class="control_panel-header">
+      <button @click="isopen = !isopen">收回面板</button>
+    </div>
     <div class="control_panel-content">
       <slot name="content"></slot>
     </div>
@@ -8,10 +12,14 @@
 </template>
 
 <script setup>
-
+import { ref } from 'vue';
+const isopen = ref(true)
 </script>
 
 <style lang="less" scoped>
+button{
+  z-index: 100;
+}
 .control_panel{ 
   width: 575px;
   height: 80%;

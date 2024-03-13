@@ -9,7 +9,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-console.log("home");
+
 </script>
 <style lang="less" scoped>
 .home{
